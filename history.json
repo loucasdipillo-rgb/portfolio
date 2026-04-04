@@ -1,0 +1,34 @@
+{
+  "snapshots": [
+    {
+      "date": "2025-09-18",
+      "cash_flow": 4000.0,
+      "total_invested": 4000.0,
+      "portfolio_value": 4000.0
+    },
+    {
+      "date": "2025-10-01",
+      "cash_flow": 1110.0,
+      "total_invested": 5110.0,
+      "portfolio_value": 5159.57
+    },
+    {
+      "date": "2026-02-03",
+      "cash_flow": 200.0,
+      "total_invested": 5310.0,
+      "portfolio_value": 5689.47
+    },
+    {
+      "date": "2026-03-06",
+      "cash_flow": 50.0,
+      "total_invested": 5360.0,
+      "portfolio_value": 5678.34
+    },
+    {
+      "date": "2026-03-21",
+      "cash_flow": 0.0,
+      "total_invested": 5360.0,
+      "portfolio_value": 5471.28
+    }
+  ]
+}

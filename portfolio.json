@@ -1,0 +1,29 @@
+{
+  "positions": [
+    {
+      "ticker": "CW8.PA",
+      "name": "Amundi MSCI World Swap",
+      "shares": 6,
+      "avg_buy_price": 555.513
+    },
+    {
+      "ticker": "ETZ.PA",
+      "name": "BNP Paribas Easy STOXX Europe 600",
+      "shares": 54,
+      "avg_buy_price": 18.152
+    },
+    {
+      "ticker": "PAEEM.PA",
+      "name": "Amundi PEA MSCI Emerging ESG",
+      "shares": 28,
+      "avg_buy_price": 27.725
+    },
+    {
+      "ticker": "CASH",
+      "name": "Cash (EUR)",
+      "shares": 126.90,
+      "avg_buy_price": 1.0,
+      "is_cash": true
+    }
+  ]
+}
