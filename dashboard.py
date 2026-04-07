@@ -117,30 +117,41 @@ _DEFAULT_PORTFOLIO = {
             "ticker": "CW8.PA",
             "name": "Amundi MSCI World Swap",
             "shares": 6,
-            "avg_buy_price": 555.513,
+            "avg_buy_price": 589.2274,
         },
         {
             "ticker": "ETZ.PA",
             "name": "BNP Paribas Easy STOXX Europe 600",
             "shares": 54,
-            "avg_buy_price": 18.152,
+            "avg_buy_price": 18.167,
         },
         {
             "ticker": "PAEEM.PA",
             "name": "Amundi PEA MSCI Emerging ESG",
             "shares": 28,
-            "avg_buy_price": 27.725,
+            "avg_buy_price": 27.7306,
+        },
+        {
+            "ticker": "CASH",
+            "name": "Cash (EUR)",
+            "shares": 126.90,
+            "avg_buy_price": 1.0,
+            "is_cash": True,
         },
     ]
 }
 
 _DEFAULT_HISTORY = {
     "snapshots": [
-        {"date": "2025-09-18", "cash_flow": 4000.0, "total_invested": 4000.0, "portfolio_value": 4000.00},
-        {"date": "2025-10-01", "cash_flow": 1110.0, "total_invested": 5110.0, "portfolio_value": 5159.57},
-        {"date": "2026-02-03", "cash_flow": 200.0,  "total_invested": 5310.0, "portfolio_value": 5689.47},
-        {"date": "2026-03-06", "cash_flow": 50.0,   "total_invested": 5360.0, "portfolio_value": 5678.34},
-        {"date": "2026-03-21", "cash_flow": 0.0,    "total_invested": 5360.0, "portfolio_value": 5471.28},
+        {"date": "2025-09-18", "cash_flow":  3942.98, "total_invested": 3942.98, "portfolio_value": 3942.98},
+        {"date": "2025-10-01", "cash_flow":   586.20, "total_invested": 4529.18, "portfolio_value": 4529.18},
+        {"date": "2025-11-10", "cash_flow":    58.08, "total_invested": 4587.26, "portfolio_value": 4587.26},
+        {"date": "2025-12-05", "cash_flow":    56.98, "total_invested": 4644.24, "portfolio_value": 4644.24},
+        {"date": "2026-01-02", "cash_flow":    56.60, "total_invested": 4700.84, "portfolio_value": 4700.84},
+        {"date": "2026-03-05", "cash_flow":   616.96, "total_invested": 5317.80, "portfolio_value": 5317.80},
+        {"date": "2026-03-24", "cash_flow":   -87.52, "total_invested": 5230.28, "portfolio_value": 5234.24},
+        {"date": "2026-03-31", "cash_flow":    58.60, "total_invested": 5288.88, "portfolio_value": 5292.84},
+        {"date": "2026-04-07", "cash_flow":     0.00, "total_invested": 5288.88, "portfolio_value": 5582.75},
     ]
 }
 
@@ -345,6 +356,28 @@ def _delta_color(val):
         return f"color: {GREEN}; font-weight: 600" if v >= 0 else f"color: {RED}; font-weight: 600"
     except (TypeError, ValueError):
         return ""
+
+
+# ─── TWR ──────────────────────────────────────────────────────────────────────
+
+def _compute_twr(df_hist: pd.DataFrame) -> float | None:
+    """Time-Weighted Return across all snapshot sub-periods.
+
+    For each sub-period the return is computed on the value *before* the
+    next cash flow, eliminating the distorting effect of contributions /
+    withdrawals:  R_i = (V_end - CF_end) / V_start - 1
+    """
+    if len(df_hist) < 2:
+        return None
+    twr = 1.0
+    for i in range(len(df_hist) - 1):
+        v_start = df_hist["portfolio_value"].iloc[i]
+        v_end   = df_hist["portfolio_value"].iloc[i + 1]
+        cf      = df_hist["cash_flow"].iloc[i + 1]
+        if v_start <= 0:
+            continue
+        twr *= (v_end - cf) / v_start
+    return (twr - 1) * 100
 
 
 # ─── Overview ─────────────────────────────────────────────────────────────────
@@ -666,16 +699,15 @@ def _page_performance(df_hist: pd.DataFrame, df_pos: pd.DataFrame):
 
     st.markdown("---")
 
-    first_val = df_hist["portfolio_value"].iloc[0]
     last_val = df_hist["portfolio_value"].iloc[-1]
     last_inv = df_hist["total_invested"].iloc[-1]
-    total_ret = (last_val / first_val - 1) * 100 if first_val else 0
+    twr = _compute_twr(df_hist)
     abs_pnl = last_val - last_inv
     days = (df_hist["date"].iloc[-1] - df_hist["date"].iloc[0]).days
     best_snap = df_hist.loc[df_hist["portfolio_value"].idxmax()]
 
     c1, c2, c3, c4 = st.columns(4)
-    c1.metric("Return (Inception)", f"{total_ret:+.2f}%")
+    c1.metric("TWR (Time-Weighted)", f"{twr:+.2f}%" if twr is not None else "—")
     c2.metric("Absolute P&L", f"€ {abs_pnl:+,.2f}")
     c3.metric("Total Invested", f"€ {last_inv:,.2f}")
     c4.metric("Portfolio High", f"€ {best_snap['portfolio_value']:,.2f}")
