@@ -1,57 +1,51 @@
-# PEA Portfolio Dashboard
+# Loucas Di Pillo — Personal Portfolio
 
-A dark-themed Streamlit dashboard for tracking a French PEA (Plan d'Épargne en Actions) ETF portfolio, with live prices via yfinance and historical performance tracking.
+Personal portfolio website for Loucas Di Pillo, Economics & Finance student at HEC Liège.  
+Built as a single-file static site with a companion Streamlit dashboard for live PEA portfolio tracking.
 
-## Quick start
+## Site
+
+**`index.html`** — the entire portfolio website in one self-contained file.  
+No build step, no framework, no dependencies. Open it directly in a browser or deploy to any static host.
+
+Sections: Hero · About · Education · Experience · Skills · Projects · Gallery · Contact
+
+### Assets
+| Path | Contents |
+|------|----------|
+| `images/` | Profile photo and gallery images |
+| `projects/` | PDF reports linked from project cards |
+| `CV-Loucas_DiPillo.pdf` | CV linked from the hero section |
+
+## PEA Dashboard
+
+**`dashboard.py`** — a Streamlit app for tracking a French PEA (equity savings plan) ETF portfolio with live prices, time-weighted return, drawdown analysis, and historical snapshots.
 
 ```bash
-# 1. Install dependencies
 pip install -r requirements.txt
-
-# 2. Run the dashboard
-streamlit run dashboard.py
+streamlit run dashboard.py          # opens at http://localhost:8501
 ```
 
-The app opens at **http://localhost:8501** with a forced dark theme.
-
-## Features
-
-| Page | What you see |
-|---|---|
-| **Overview** | Total invested · current value · total P&L (€ + %) · mini allocation donut + performance snapshot |
-| **Allocation** | Full donut chart with per-position breakdown and progress bars |
-| **Positions** | Colour-coded table (live price, P&L per position) + P&L bar chart |
-| **Performance** | Portfolio value vs. total invested over time (with live data point if fresher) |
-| **Drawdown** | Rolling drawdown from all-time high, max-DD annotation, ATH metrics |
-
-**Sidebar controls:**
-- **Refresh Live Prices** — clears the 5-minute cache and re-fetches
-- **Manage Positions** — add, edit, or remove ETF positions (persisted to `portfolio.json`)
-- **Log Snapshot** — record a portfolio value + optional cash flow (persisted to `history.json`)
-
-## Data files
-
+### Data files
 | File | Purpose |
-|---|---|
-| `portfolio.json` | Current positions (ticker, name, shares, avg buy price) |
+|------|---------|
+| `portfolio.json` | Current positions (ticker, shares, avg buy price) |
 | `history.json` | Snapshot history (date, cash flow, total invested, portfolio value) |
 
-Both files are created automatically on first run if missing, pre-seeded with your PEA positions and historical snapshots.
+Both files are auto-created from defaults if missing.
 
 ## Project structure
 
 ```
 portfolio/
-├── dashboard.py          # Main Streamlit app
-├── portfolio.json        # Position data
-├── history.json          # Historical snapshots
-├── requirements.txt
-├── README.md
+├── index.html              # Portfolio website (self-contained)
+├── CV-Loucas_DiPillo.pdf   # CV
+├── images/                 # Gallery & profile photos
+├── projects/               # Academic project PDFs
+├── dashboard.py            # PEA portfolio Streamlit app
+├── portfolio.json          # ETF positions data
+├── history.json            # Portfolio snapshot history
+├── requirements.txt        # Python dependencies
 └── .streamlit/
-    └── config.toml       # Dark theme config
+    └── config.toml         # Dark theme config
 ```
-
-## Requirements
-
-- Python 3.10+
-- See `requirements.txt` (streamlit, yfinance, pandas ≥ 2.1, plotly, numpy)
