@@ -22,18 +22,18 @@
       --text:        #eeeef7;
       --text-sub:    #9494b0;
       --text-muted:  #5c5c7a;
-      --accent:      #6366f1;
-      --accent-hi:   #818cf8;
-      --accent-2:    #22d3ee;
-      --grad:        linear-gradient(135deg,#6366f1,#8b5cf6,#22d3ee);
-      --grad-text:   linear-gradient(135deg,#818cf8,#c084fc,#67e8f9);
+      --accent:      #10b981;
+      --accent-hi:   #34d399;
+      --accent-2:    #6ee7b7;
+      --grad:        linear-gradient(135deg,#10b981,#059669,#34d399);
+      --grad-text:   linear-gradient(135deg,#34d399,#6ee7b7,#a7f3d0);
       --r-sm:        8px;
       --r:           14px;
       --r-lg:        22px;
       --ease:        cubic-bezier(.4,0,.2,1);
       --t:           180ms;
       --shadow:      0 8px 40px rgba(0,0,0,.55);
-      --shadow-a:    0 0 60px rgba(99,102,241,.12);
+      --shadow-a:    0 0 60px rgba(16,185,129,.12);
     }
 
     /* ─── RESET ──────────────────────────────────────────────── */
@@ -48,6 +48,8 @@
       overflow-x: hidden;
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
+      opacity: 0;
+      transition: opacity .4s var(--ease);
     }
     a { color: inherit; }
     img { display: block; max-width: 100%; }
@@ -133,10 +135,10 @@
     .btn-primary {
       background: var(--grad);
       color: #fff;
-      box-shadow: 0 0 0 1px rgba(99,102,241,.28), 0 8px 32px rgba(99,102,241,.28);
+      box-shadow: 0 0 0 1px rgba(16,185,129,.28), 0 8px 32px rgba(16,185,129,.28);
     }
     .btn-primary:hover {
-      box-shadow: 0 0 0 1px rgba(99,102,241,.5), 0 14px 44px rgba(99,102,241,.4);
+      box-shadow: 0 0 0 1px rgba(16,185,129,.5), 0 14px 44px rgba(16,185,129,.4);
     }
     .btn-ghost {
       background: var(--surface-2);
@@ -292,9 +294,9 @@
       opacity: .1;
       animation: orb 14s ease-in-out infinite;
     }
-    .orb-1 { width: 700px; height: 700px; background: #6366f1; top: -260px; right: -140px; animation-delay: 0s; }
-    .orb-2 { width: 460px; height: 460px; background: #8b5cf6; bottom: -160px; left: -80px; animation-delay: -5s; }
-    .orb-3 { width: 320px; height: 320px; background: #22d3ee; top: 44%; left: 38%; animation-delay: -10s; opacity: .07; }
+    .orb-1 { width: 700px; height: 700px; background: #10b981; top: -260px; right: -140px; animation-delay: 0s; }
+    .orb-2 { width: 460px; height: 460px; background: #059669; bottom: -160px; left: -80px; animation-delay: -5s; }
+    .orb-3 { width: 320px; height: 320px; background: #34d399; top: 44%; left: 38%; animation-delay: -10s; opacity: .07; }
     @keyframes orb {
       0%,100% { transform: translate(0,0) scale(1); }
       40%      { transform: translate(28px,-18px) scale(1.06); }
@@ -335,8 +337,8 @@
       display: inline-flex;
       align-items: center;
       gap: 9px;
-      background: rgba(99,102,241,.1);
-      border: 1px solid rgba(99,102,241,.22);
+      background: rgba(16,185,129,.1);
+      border: 1px solid rgba(16,185,129,.22);
       color: var(--accent-hi);
       font-size: .78rem;
       font-weight: 700;
@@ -518,8 +520,8 @@
     .about-loc svg { flex-shrink: 0; }
     .about-chips { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; }
     .about-chip {
-      background: rgba(99,102,241,.08);
-      border: 1px solid rgba(99,102,241,.16);
+      background: rgba(16,185,129,.08);
+      border: 1px solid rgba(16,185,129,.16);
       color: var(--accent-hi);
       font-size: .75rem;
       font-weight: 600;
@@ -544,7 +546,7 @@
       top: 8px;
       bottom: 8px;
       width: 1px;
-      background: linear-gradient(to bottom, var(--accent) 0%, rgba(99,102,241,.1) 100%);
+      background: linear-gradient(to bottom, var(--accent) 0%, rgba(16,185,129,.1) 100%);
     }
     .edu-card {
       background: var(--surface-2);
@@ -568,7 +570,7 @@
       height: 14px;
       border-radius: 50%;
       background: var(--grad);
-      box-shadow: 0 0 14px rgba(99,102,241,.55);
+      box-shadow: 0 0 14px rgba(16,185,129,.55);
     }
     .edu-head { display: flex; align-items: flex-start; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
     .edu-date {
@@ -594,8 +596,8 @@
       gap: 7px;
     }
     .edu-badge {
-      background: rgba(99,102,241,.09);
-      border: 1px solid rgba(99,102,241,.16);
+      background: rgba(16,185,129,.09);
+      border: 1px solid rgba(16,185,129,.16);
       color: var(--accent-hi);
       font-size: .7rem;
       font-weight: 700;
@@ -654,12 +656,12 @@
     }
     .tag:hover {
       color: var(--text);
-      border-color: rgba(99,102,241,.25);
-      background: rgba(99,102,241,.05);
+      border-color: rgba(16,185,129,.25);
+      background: rgba(16,185,129,.05);
     }
 
     /* ─── PROJECTS ───────────────────────────────────────────── */
-    .proj-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(330px, 1fr)); gap: 22px; }
+    .proj-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(330px, 1fr)); gap: 22px; perspective: 1000px; }
     .proj-card.personal {
       border-color: rgba(74,222,128,.12);
       background: linear-gradient(160deg, #0d1610 0%, var(--surface-2) 60%);
@@ -691,9 +693,9 @@
       transition: border-color var(--t), transform 220ms var(--ease), box-shadow 220ms var(--ease);
     }
     .proj-card:hover {
-      border-color: rgba(99,102,241,.28);
+      border-color: rgba(16,185,129,.28);
       transform: translateY(-5px);
-      box-shadow: 0 24px 64px rgba(0,0,0,.5), 0 0 50px rgba(99,102,241,.07);
+      box-shadow: 0 24px 64px rgba(0,0,0,.5), 0 0 50px rgba(16,185,129,.07);
     }
     .proj-thumb {
       aspect-ratio: 16/9;
@@ -737,8 +739,8 @@
       letter-spacing: .07em;
       text-transform: uppercase;
       color: var(--accent-hi);
-      background: rgba(99,102,241,.09);
-      border: 1px solid rgba(99,102,241,.13);
+      background: rgba(16,185,129,.09);
+      border: 1px solid rgba(16,185,129,.13);
       padding: 3px 10px;
       border-radius: 100px;
     }
@@ -847,7 +849,7 @@
       content: '';
       position: absolute;
       inset: 0;
-      background: radial-gradient(ellipse 80% 55% at 50% 0%, rgba(99,102,241,.07) 0%, transparent 70%);
+      background: radial-gradient(ellipse 80% 55% at 50% 0%, rgba(16,185,129,.07) 0%, transparent 70%);
     }
     .contact-card::after {
       content: '';
@@ -1024,11 +1026,11 @@
 <div class="metrics" role="region" aria-label="Highlights">
   <div class="metrics-wrap">
     <div class="metric rev">
-      <span class="metric-n">7</span>
+      <span class="metric-n">6+</span>
       <span class="metric-l">Projects &amp; Research</span>
     </div>
     <div class="metric rev d1">
-      <span class="metric-n">2</span>
+      <span class="metric-n">3</span>
       <span class="metric-l">Universities</span>
     </div>
     <div class="metric rev d2">
@@ -1076,7 +1078,7 @@
         <p class="rev d2">
           I'm a first-year Master's student in Macroeconomics &amp; Finance at HEC Liège, Belgium,
           building on a Bachelor's in Economics (Finance major, 13.5/20) from the University of
-          Luxembourg. Bilingual in French and English, with study experience across Belgium and Luxembourg.
+          Luxembourg. Bilingual in French and English, with experience internationnaly.
         </p>
         <p class="rev d3">
           My work sits at the intersection of empirical finance and data science — from panel econometrics
@@ -1096,7 +1098,7 @@
     <div class="s-head">
       <div class="s-label rev">Education</div>
       <h2 id="edu-h" class="s-title rev d1">Academic background</h2>
-      <p class="s-desc rev d2">Trained at leading European institutions with a focus on economics and quantitative finance.</p>
+      <p class="s-desc rev d2">Trained at leading European institutions with a focus on economics and finance.</p>
     </div>
     <div class="edu-list" role="list">
 
@@ -1147,7 +1149,7 @@
           and econometrics. Finance major with emphasis on investment analysis and risk management.
           Grade: 13.5/20.
           <br><br>
-          🇺🇸 <strong style="color:var(--text-sub)">Erasmus Semester</strong> — Lakeland University, Wisconsin, USA (2023–2024)
+          🇺🇸 <strong style="color:var(--text-sub)">Erasmus Semester (GPE)</strong> — Lakeland University, Wisconsin, USA (2023–2024)
         </div>
       </div>
 
@@ -1228,7 +1230,7 @@
 
       <div class="skill-cat rev">
         <div class="skill-cat-hd">
-          <div class="skill-icon" style="background:rgba(99,102,241,.1)" aria-hidden="true">📊</div>
+          <div class="skill-icon" style="background:rgba(16,185,129,.1)" aria-hidden="true">📊</div>
           <span class="skill-cat-name">Quantitative Methods</span>
         </div>
         <div class="tags">
@@ -1251,7 +1253,7 @@
           <span class="tag">pandas</span>
           <span class="tag">matplotlib</span>
           <span class="tag">scikit-learn</span>
-          <span class="tag">NLP / BERT</span>
+          <span class="tag">NLP</span>
           <span class="tag">Machine Learning</span>
         </div>
       </div>
@@ -1321,21 +1323,21 @@
             <line x1="14" y1="78" x2="178" y2="78" stroke="currentColor" stroke-width="1" opacity=".18"/>
             <line x1="14" y1="10" x2="14"  y2="78" stroke="currentColor" stroke-width="1" opacity=".18"/>
             <!-- Pre-CSRD yield curve (higher spread) -->
-            <path d="M18 68 C50 65 80 40 175 22" stroke="#c084fc" stroke-width="1.8" stroke-linecap="round" opacity=".7"/>
+            <path d="M18 68 C50 65 80 40 175 22" stroke="#6ee7b7" stroke-width="1.8" stroke-linecap="round" opacity=".7"/>
             <!-- Post-CSRD yield curve (lower spread) -->
-            <path d="M18 68 C50 65 80 50 175 38" stroke="#22d3ee" stroke-width="1.8" stroke-linecap="round" opacity=".8"/>
+            <path d="M18 68 C50 65 80 50 175 38" stroke="#34d399" stroke-width="1.8" stroke-linecap="round" opacity=".8"/>
             <!-- Spread gap shading -->
-            <path d="M80 40 C110 35 145 28 175 22 L175 38 C145 42 110 46 80 50 Z" fill="#818cf8" opacity=".1"/>
+            <path d="M80 40 C110 35 145 28 175 22 L175 38 C145 42 110 46 80 50 Z" fill="#34d399" opacity=".1"/>
             <!-- DiD bracket annotation -->
-            <line x1="150" y1="27" x2="150" y2="40" stroke="#818cf8" stroke-width="1.2" stroke-dasharray="2 2" opacity=".6"/>
-            <line x1="146" y1="27" x2="154" y2="27" stroke="#818cf8" stroke-width="1.2" opacity=".6"/>
-            <line x1="146" y1="40" x2="154" y2="40" stroke="#818cf8" stroke-width="1.2" opacity=".6"/>
+            <line x1="150" y1="27" x2="150" y2="40" stroke="#34d399" stroke-width="1.2" stroke-dasharray="2 2" opacity=".6"/>
+            <line x1="146" y1="27" x2="154" y2="27" stroke="#34d399" stroke-width="1.2" opacity=".6"/>
+            <line x1="146" y1="40" x2="154" y2="40" stroke="#34d399" stroke-width="1.2" opacity=".6"/>
             <!-- Maturity labels -->
-            <circle cx="60"  cy="60" r="2.5" fill="#c084fc" opacity=".55"/>
-            <circle cx="100" cy="47" r="2.5" fill="#c084fc" opacity=".55"/>
-            <circle cx="140" cy="32" r="2.5" fill="#22d3ee" opacity=".65"/>
-            <circle cx="175" cy="22" r="2.5" fill="#c084fc" opacity=".55"/>
-            <circle cx="175" cy="38" r="2.5" fill="#22d3ee" opacity=".65"/>
+            <circle cx="60"  cy="60" r="2.5" fill="#6ee7b7" opacity=".55"/>
+            <circle cx="100" cy="47" r="2.5" fill="#6ee7b7" opacity=".55"/>
+            <circle cx="140" cy="32" r="2.5" fill="#34d399" opacity=".65"/>
+            <circle cx="175" cy="22" r="2.5" fill="#6ee7b7" opacity=".55"/>
+            <circle cx="175" cy="38" r="2.5" fill="#34d399" opacity=".65"/>
           </svg>
           <span class="proj-pill">Master Thesis</span>
         </div>
@@ -1393,7 +1395,7 @@
                      C124 12 128 38 132 52
                      C140 56 152 58 162 57
                      C172 56 180 55 186 54"
-                  stroke="#818cf8" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" opacity=".85"/>
+                  stroke="#34d399" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" opacity=".85"/>
             <!-- VSTOXX line (EU) — spikes but lower, diverges -->
             <path d="M16 65 C30 63 45 62 58 61 C70 60 80 59 90 58
                      C100 57 108 57 112 55
@@ -1401,7 +1403,7 @@
                      C124 22 128 46 132 57
                      C140 61 152 63 162 62
                      C172 61 180 60 186 59"
-                  stroke="#22d3ee" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" opacity=".8"/>
+                  stroke="#34d399" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" opacity=".8"/>
             <!-- Divergence gap markers at peak -->
             <line x1="122" y1="11" x2="122" y2="20" stroke="white" stroke-width="1" stroke-dasharray="2 2" opacity=".25"/>
             <!-- Year ticks -->
@@ -1410,8 +1412,8 @@
             <line x1="122" y1="76" x2="122" y2="80" stroke="currentColor" stroke-width="1" opacity=".25"/>
             <line x1="162" y1="76" x2="162" y2="80" stroke="currentColor" stroke-width="1" opacity=".25"/>
             <!-- Legend dots -->
-            <circle cx="24" cy="16" r="3.5" fill="#818cf8" opacity=".8"/>
-            <circle cx="24" cy="25" r="3.5" fill="#22d3ee" opacity=".8"/>
+            <circle cx="24" cy="16" r="3.5" fill="#34d399" opacity=".8"/>
+            <circle cx="24" cy="25" r="3.5" fill="#34d399" opacity=".8"/>
           </svg>
           <span class="proj-pill">Volatility Research</span>
         </div>
@@ -1436,7 +1438,7 @@
         </div>
         <div class="proj-ft">
           <span style="font-size:.72rem;font-weight:700;letter-spacing:.07em;text-transform:uppercase;
-                       color:#22d3ee;background:rgba(34,211,238,.08);border:1px solid rgba(34,211,238,.2);
+                       color:#34d399;background:rgba(34,211,238,.08);border:1px solid rgba(34,211,238,.2);
                        padding:4px 12px;border-radius:100px;">
             Completed
           </span>
@@ -1457,30 +1459,30 @@
           <!-- Speech → price line: text tokens feeding into S&P trend -->
           <svg class="proj-vis" width="200" height="90" viewBox="0 0 200 90" fill="none" aria-hidden="true">
             <!-- Speech bubble -->
-            <rect x="8" y="12" width="58" height="36" rx="7" stroke="#c084fc" stroke-width="1.5" opacity=".7"/>
-            <path d="M20 48 L16 56 L28 50" fill="none" stroke="#c084fc" stroke-width="1.5" stroke-linejoin="round" opacity=".7"/>
+            <rect x="8" y="12" width="58" height="36" rx="7" stroke="#6ee7b7" stroke-width="1.5" opacity=".7"/>
+            <path d="M20 48 L16 56 L28 50" fill="none" stroke="#6ee7b7" stroke-width="1.5" stroke-linejoin="round" opacity=".7"/>
             <!-- Text lines inside bubble (abstract words) -->
-            <line x1="16" y1="22" x2="58" y2="22" stroke="#c084fc" stroke-width="1.2" stroke-linecap="round" opacity=".4"/>
-            <line x1="16" y1="29" x2="52" y2="29" stroke="#c084fc" stroke-width="1.2" stroke-linecap="round" opacity=".3"/>
-            <line x1="16" y1="36" x2="44" y2="36" stroke="#c084fc" stroke-width="1.2" stroke-linecap="round" opacity=".25"/>
+            <line x1="16" y1="22" x2="58" y2="22" stroke="#6ee7b7" stroke-width="1.2" stroke-linecap="round" opacity=".4"/>
+            <line x1="16" y1="29" x2="52" y2="29" stroke="#6ee7b7" stroke-width="1.2" stroke-linecap="round" opacity=".3"/>
+            <line x1="16" y1="36" x2="44" y2="36" stroke="#6ee7b7" stroke-width="1.2" stroke-linecap="round" opacity=".25"/>
             <!-- Arrow / pipeline from bubble to chart -->
-            <path d="M68 30 L88 30" stroke="#818cf8" stroke-width="1.4" stroke-linecap="round" stroke-dasharray="3 3" opacity=".55"/>
-            <path d="M84 26 L90 30 L84 34" fill="none" stroke="#818cf8" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" opacity=".55"/>
+            <path d="M68 30 L88 30" stroke="#34d399" stroke-width="1.4" stroke-linecap="round" stroke-dasharray="3 3" opacity=".55"/>
+            <path d="M84 26 L90 30 L84 34" fill="none" stroke="#34d399" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" opacity=".55"/>
             <!-- Axis -->
             <line x1="94" y1="74" x2="192" y2="74" stroke="currentColor" stroke-width="1" opacity=".15"/>
             <line x1="94" y1="20" x2="94"  y2="74" stroke="currentColor" stroke-width="1" opacity=".15"/>
             <!-- S&P 500 price line (generally upward, noisy) -->
             <polyline
               points="96,64 104,60 112,62 120,55 128,50 134,53 140,44 148,40 156,42 162,36 170,32 178,28 186,24"
-              fill="none" stroke="#22d3ee" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" opacity=".85"/>
+              fill="none" stroke="#34d399" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" opacity=".85"/>
             <!-- Reaction dots at speech events -->
-            <circle cx="112" cy="62" r="3" fill="#c084fc" opacity=".75"/>
-            <circle cx="134" cy="53" r="3" fill="#c084fc" opacity=".75"/>
-            <circle cx="162" cy="36" r="3" fill="#c084fc" opacity=".75"/>
+            <circle cx="112" cy="62" r="3" fill="#6ee7b7" opacity=".75"/>
+            <circle cx="134" cy="53" r="3" fill="#6ee7b7" opacity=".75"/>
+            <circle cx="162" cy="36" r="3" fill="#6ee7b7" opacity=".75"/>
             <!-- Faint vertical event lines -->
-            <line x1="112" y1="62" x2="112" y2="74" stroke="#c084fc" stroke-width="1" stroke-dasharray="2 3" opacity=".3"/>
-            <line x1="134" y1="53" x2="134" y2="74" stroke="#c084fc" stroke-width="1" stroke-dasharray="2 3" opacity=".3"/>
-            <line x1="162" y1="36" x2="162" y2="74" stroke="#c084fc" stroke-width="1" stroke-dasharray="2 3" opacity=".3"/>
+            <line x1="112" y1="62" x2="112" y2="74" stroke="#6ee7b7" stroke-width="1" stroke-dasharray="2 3" opacity=".3"/>
+            <line x1="134" y1="53" x2="134" y2="74" stroke="#6ee7b7" stroke-width="1" stroke-dasharray="2 3" opacity=".3"/>
+            <line x1="162" y1="36" x2="162" y2="74" stroke="#6ee7b7" stroke-width="1" stroke-dasharray="2 3" opacity=".3"/>
           </svg>
           <span class="proj-pill">NLP + Finance</span>
         </div>
@@ -1505,7 +1507,7 @@
         </div>
         <div class="proj-ft">
           <span style="font-size:.72rem;font-weight:700;letter-spacing:.07em;text-transform:uppercase;
-                       color:#22d3ee;background:rgba(34,211,238,.08);border:1px solid rgba(34,211,238,.2);
+                       color:#34d399;background:rgba(34,211,238,.08);border:1px solid rgba(34,211,238,.2);
                        padding:4px 12px;border-radius:100px;">
             Completed
           </span>
@@ -1526,33 +1528,33 @@
           <!-- Globe + bilateral trade flow arrows -->
           <svg class="proj-vis" width="200" height="90" viewBox="0 0 200 90" fill="none" aria-hidden="true">
             <!-- Globe outline -->
-            <circle cx="60" cy="45" r="28" stroke="#22d3ee" stroke-width="1.5" opacity=".55"/>
+            <circle cx="60" cy="45" r="28" stroke="#34d399" stroke-width="1.5" opacity=".55"/>
             <!-- Latitude lines -->
-            <ellipse cx="60" cy="45" rx="28" ry="10" stroke="#22d3ee" stroke-width="1" opacity=".2"/>
-            <ellipse cx="60" cy="45" rx="28" ry="20" stroke="#22d3ee" stroke-width="1" opacity=".15"/>
+            <ellipse cx="60" cy="45" rx="28" ry="10" stroke="#34d399" stroke-width="1" opacity=".2"/>
+            <ellipse cx="60" cy="45" rx="28" ry="20" stroke="#34d399" stroke-width="1" opacity=".15"/>
             <!-- Longitude line -->
-            <ellipse cx="60" cy="45" rx="10" ry="28" stroke="#22d3ee" stroke-width="1" opacity=".2"/>
+            <ellipse cx="60" cy="45" rx="10" ry="28" stroke="#34d399" stroke-width="1" opacity=".2"/>
             <!-- Country A dot (high-income, strict policy) -->
-            <circle cx="48" cy="36" r="4" fill="#818cf8" opacity=".85"/>
+            <circle cx="48" cy="36" r="4" fill="#34d399" opacity=".85"/>
             <!-- Country B dot (LMIC, pollution-intensive) -->
-            <circle cx="72" cy="56" r="4" fill="#c084fc" opacity=".85"/>
+            <circle cx="72" cy="56" r="4" fill="#6ee7b7" opacity=".85"/>
             <!-- Trade flow arc A→B -->
-            <path d="M51 39 Q60 30 69 53" fill="none" stroke="#818cf8" stroke-width="1.6" stroke-linecap="round" opacity=".7" stroke-dasharray="4 3"/>
-            <path d="M65 51 L69 53 L66 57" fill="none" stroke="#818cf8" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" opacity=".7"/>
+            <path d="M51 39 Q60 30 69 53" fill="none" stroke="#34d399" stroke-width="1.6" stroke-linecap="round" opacity=".7" stroke-dasharray="4 3"/>
+            <path d="M65 51 L69 53 L66 57" fill="none" stroke="#34d399" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" opacity=".7"/>
             <!-- Policy stringency icon (shield) on left -->
             <path d="M32 24 L40 21 L48 24 L48 31 C48 35 40 38 40 38 C40 38 32 35 32 31 Z"
-                  stroke="#818cf8" stroke-width="1.2" fill="rgba(99,102,241,.1)" opacity=".6"/>
-            <path d="M36 29 L39 32 L44 27" stroke="#818cf8" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" opacity=".7"/>
+                  stroke="#34d399" stroke-width="1.2" fill="rgba(16,185,129,.1)" opacity=".6"/>
+            <path d="M36 29 L39 32 L44 27" stroke="#34d399" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" opacity=".7"/>
             <!-- Arrow label: exports -->
-            <line x1="108" y1="45" x2="160" y2="45" stroke="#22d3ee" stroke-width="1.4" stroke-linecap="round" opacity=".4" stroke-dasharray="4 3"/>
-            <path d="M154 41 L160 45 L154 49" fill="none" stroke="#22d3ee" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" opacity=".4"/>
+            <line x1="108" y1="45" x2="160" y2="45" stroke="#34d399" stroke-width="1.4" stroke-linecap="round" opacity=".4" stroke-dasharray="4 3"/>
+            <path d="M154 41 L160 45 L154 49" fill="none" stroke="#34d399" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" opacity=".4"/>
             <!-- Small factory icon (LMIC export side) -->
-            <rect x="164" y="34" width="22" height="20" rx="2" stroke="#c084fc" stroke-width="1.2" opacity=".45"/>
-            <rect x="168" y="29" width="5" height="8" rx="1" stroke="#c084fc" stroke-width="1.2" opacity=".45"/>
-            <rect x="176" y="31" width="5" height="6" rx="1" stroke="#c084fc" stroke-width="1.2" opacity=".4"/>
+            <rect x="164" y="34" width="22" height="20" rx="2" stroke="#6ee7b7" stroke-width="1.2" opacity=".45"/>
+            <rect x="168" y="29" width="5" height="8" rx="1" stroke="#6ee7b7" stroke-width="1.2" opacity=".45"/>
+            <rect x="176" y="31" width="5" height="6" rx="1" stroke="#6ee7b7" stroke-width="1.2" opacity=".4"/>
             <!-- Smoke puffs -->
-            <circle cx="170" cy="26" r="3" stroke="#c084fc" stroke-width="1" opacity=".25"/>
-            <circle cx="173" cy="22" r="2.5" stroke="#c084fc" stroke-width="1" opacity=".18"/>
+            <circle cx="170" cy="26" r="3" stroke="#6ee7b7" stroke-width="1" opacity=".25"/>
+            <circle cx="173" cy="22" r="2.5" stroke="#6ee7b7" stroke-width="1" opacity=".18"/>
           </svg>
           <span class="proj-pill">Trade Economics</span>
         </div>
@@ -1577,7 +1579,7 @@
         </div>
         <div class="proj-ft">
           <span style="font-size:.72rem;font-weight:700;letter-spacing:.07em;text-transform:uppercase;
-                       color:#22d3ee;background:rgba(34,211,238,.08);border:1px solid rgba(34,211,238,.2);
+                       color:#34d399;background:rgba(34,211,238,.08);border:1px solid rgba(34,211,238,.2);
                        padding:4px 12px;border-radius:100px;">
             Completed
           </span>
@@ -1605,17 +1607,17 @@
             <line x1="100" y1="78" x2="100" y2="82" stroke="currentColor" stroke-width="1" opacity=".2"/>
             <!-- Efficient frontier curve -->
             <path d="M30 72 C40 68 55 55 75 38 C95 22 120 14 175 12"
-                  fill="none" stroke="#818cf8" stroke-width="2" stroke-linecap="round" opacity=".8"/>
+                  fill="none" stroke="#34d399" stroke-width="2" stroke-linecap="round" opacity=".8"/>
             <!-- Fill under frontier -->
             <path d="M30 72 C40 68 55 55 75 38 C95 22 120 14 175 12 L175 78 L30 78 Z"
-                  fill="#6366f1" opacity=".05"/>
+                  fill="#10b981" opacity=".05"/>
             <!-- Capital market line from risk-free up through tangency -->
-            <line x1="18" y1="62" x2="175" y2="12" stroke="#22d3ee" stroke-width="1.4" stroke-dasharray="5 3" opacity=".55"/>
+            <line x1="18" y1="62" x2="175" y2="12" stroke="#34d399" stroke-width="1.4" stroke-dasharray="5 3" opacity=".55"/>
             <!-- Tangency portfolio point -->
-            <circle cx="112" cy="26" r="6" fill="#22d3ee" opacity=".9"/>
-            <circle cx="112" cy="26" r="10" stroke="#22d3ee" stroke-width="1.2" opacity=".3"/>
+            <circle cx="112" cy="26" r="6" fill="#34d399" opacity=".9"/>
+            <circle cx="112" cy="26" r="10" stroke="#34d399" stroke-width="1.2" opacity=".3"/>
             <!-- Minimum variance point -->
-            <circle cx="30"  cy="72" r="3.5" fill="#818cf8" opacity=".6"/>
+            <circle cx="30"  cy="72" r="3.5" fill="#34d399" opacity=".6"/>
             <!-- 52-week high momentum arrow (outperformance region) -->
             <path d="M130 22 C148 18 162 14 178 10" fill="none" stroke="#4ade80" stroke-width="1.8" stroke-linecap="round" opacity=".7"/>
             <circle cx="178" cy="10" r="3.5" fill="#4ade80" opacity=".8"/>
@@ -1841,6 +1843,9 @@
 
 <!-- ── SCRIPTS ────────────────────────────────────────────── -->
 <script>
+  /* Page-load fade-in */
+  document.body.style.opacity = '1';
+
   /* Nav scroll effect */
   const nav = document.getElementById('nav');
   const onScroll = () => nav.classList.toggle('on', window.scrollY > 24);
@@ -1897,6 +1902,19 @@
         const link = card.querySelector('.proj-link');
         if (link) link.click();
       }
+    });
+  });
+
+  /* Project card 3D tilt on hover */
+  document.querySelectorAll('.proj-card').forEach(card => {
+    card.addEventListener('mousemove', e => {
+      const r = card.getBoundingClientRect();
+      const x = (e.clientX - r.left) / r.width  - 0.5;
+      const y = (e.clientY - r.top)  / r.height - 0.5;
+      card.style.transform = `translateY(-5px) rotateX(${-y * 6}deg) rotateY(${x * 6}deg)`;
+    });
+    card.addEventListener('mouseleave', () => {
+      card.style.transform = '';
     });
   });
 </script>
