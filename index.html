@@ -6,6 +6,19 @@
   <meta name="description" content="Loucas Di Pillo — Economics & Finance student at HEC Liège. Passionate about quant finance, investment banking, and data-driven decision making." />
   <title>Loucas Di Pillo</title>
 
+  <!-- Open Graph -->
+  <meta property="og:type"        content="website" />
+  <meta property="og:title"       content="Loucas Di Pillo — Portfolio" />
+  <meta property="og:description" content="Economics & Finance student at HEC Liège, specialising in macroeconomics and quantitative finance." />
+  <meta property="og:image"       content="images/profile.jpg" />
+  <!-- Twitter Card -->
+  <meta name="twitter:card"        content="summary" />
+  <meta name="twitter:title"       content="Loucas Di Pillo — Portfolio" />
+  <meta name="twitter:description" content="Economics & Finance student at HEC Liège, specialising in macroeconomics and quantitative finance." />
+  <meta name="twitter:image"       content="images/profile.jpg" />
+  <!-- Browser chrome -->
+  <meta name="theme-color" content="#05050a" />
+
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap" rel="stylesheet" />
@@ -772,6 +785,16 @@
       min-height: 44px;
     }
     .proj-card:hover .proj-link { gap: 10px; }
+    button.proj-link {
+      background: none;
+      border: none;
+      padding: 0;
+      cursor: default;
+      opacity: .38;
+      font-family: inherit;
+    }
+    button.proj-link svg { display: none; }
+    .proj-card:hover button.proj-link { gap: 6px; opacity: .38; }
 
     /* ─── PHOTOS ─────────────────────────────────────────────── */
     #photos {
@@ -936,7 +959,26 @@
       .metrics-wrap  { gap: 26px; }
       .metric-n      { font-size: 2rem; }
     }
+
+    /* ─── FOCUS VISIBLE ─────────────────────────────────────── */
+    :focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: 3px;
+      border-radius: 4px;
+    }
+
+    /* ─── REDUCED MOTION ────────────────────────────────────── */
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: .01ms !important;
+        scroll-behavior: auto !important;
+      }
+      .rev { opacity: 1; transform: none; }
+    }
   </style>
+  <noscript><style>.rev { opacity: 1 !important; transform: none !important; }</style></noscript>
 </head>
 <body>
 
@@ -1053,7 +1095,7 @@
         <div class="avatar-wrap" role="img" aria-label="Portrait of Loucas Di Pillo">
           <div class="avatar-ring" aria-hidden="true"></div>
           <div class="avatar-inner">
-            <img src="images/profile.jpg" alt="Loucas Di Pillo" style="width:100%;height:100%;object-fit:cover;border-radius:50%;">
+            <img src="images/profile.jpg" alt="Loucas Di Pillo" loading="lazy" style="width:100%;height:100%;object-fit:cover;border-radius:50%;">
           </div>
         </div>
         <div class="about-loc">
@@ -1365,12 +1407,9 @@
                        padding:4px 12px;border-radius:100px;">
             In Progress
           </span>
-          <a href="#" class="proj-link" aria-label="View CSRD & the Cost of Debt project (PDF coming soon)">
-            PDF soon
-            <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
-              <path d="M3 11L11 3M11 3H5M11 3v6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-          </a>
+          <button type="button" class="proj-link" aria-disabled="true" aria-label="CSRD project PDF not yet available">
+            PDF coming soon
+          </button>
         </div>
       </article>
 
@@ -1654,12 +1693,9 @@
                          animation:blink 2.2s ease infinite;flex-shrink:0;"></span>
             Live
           </span>
-          <a href="#" class="proj-link" aria-label="View 52-Week High Momentum Strategy project">
-            View project
-            <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
-              <path d="M3 11L11 3M11 3H5M11 3v6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-          </a>
+          <button type="button" class="proj-link" aria-disabled="true" aria-label="52-Week High strategy running privately on StockTrak">
+            Running on StockTrak
+          </button>
         </div>
       </article>
 
@@ -1811,7 +1847,7 @@
             </svg>
             Send an email
           </a>
-          <a href="https://www.linkedin.com/in/loucas-di-pillo-bb7544313"
+          <a href="https://www.linkedin.com/in/loucas-di-pillo"
              target="_blank"
              rel="noopener noreferrer"
              class="btn btn-ghost"
