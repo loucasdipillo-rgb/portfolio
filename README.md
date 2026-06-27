@@ -1,8 +1,5 @@
 # Loucas Di Pillo — Personal Portfolio
 
-Personal portfolio website for Loucas Di Pillo, Master's student in Macroeconomics & Finance at HEC Liège.
-
-Built as a single self-contained HTML file — no framework, no build step, no dependencies.
 
 **Live site:** [loucasdipillo-rgb.github.io/portfolio](https://loucasdipillo-rgb.github.io/portfolio)
 
