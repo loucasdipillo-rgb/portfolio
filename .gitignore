@@ -1,3 +1,19 @@
+# OS
 .DS_Store
 Thumbs.db
+
+# Logs
 *.log
+
+# Dashboard (not part of the public site)
+dashboard.py
+requirements.txt
+*.json
+.streamlit/
+
+# Python
+__pycache__/
+*.pyc
+
+# Editor
+.vscode/

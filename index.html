@@ -632,6 +632,57 @@
       line-height: 1.7;
     }
 
+    /* ─── CERTIFICATIONS ────────────────────────────────────── */
+    .cert-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 16px; }
+    .cert-card {
+      background: var(--surface-2);
+      border: 1px solid var(--border);
+      border-radius: var(--r);
+      padding: 20px 22px;
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+      transition: border-color var(--t), transform var(--t);
+    }
+    .cert-card:hover { border-color: var(--border-hi); transform: translateY(-2px); }
+    .cert-icon {
+      width: 38px; height: 38px;
+      border-radius: 9px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.1rem;
+      flex-shrink: 0;
+    }
+    .cert-body { flex: 1; min-width: 0; }
+    .cert-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: .97rem;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 4px;
+    }
+    .cert-sub { font-size: .82rem; color: var(--text-sub); }
+    .cert-status {
+      font-size: .68rem;
+      font-weight: 700;
+      letter-spacing: .07em;
+      text-transform: uppercase;
+      padding: 3px 10px;
+      border-radius: 100px;
+      white-space: nowrap;
+      align-self: center;
+      flex-shrink: 0;
+    }
+    .cert-status.progress {
+      color: #f59e0b;
+      background: rgba(245,158,11,.08);
+      border: 1px solid rgba(245,158,11,.22);
+    }
+    .cert-status.done {
+      color: var(--accent-hi);
+      background: rgba(16,185,129,.08);
+      border: 1px solid rgba(16,185,129,.18);
+    }
+
     /* ─── SKILLS ─────────────────────────────────────────────── */
     #skills {
       background: var(--surface);
@@ -988,6 +1039,7 @@
   <a href="#about"     onclick="closeMob()">About</a>
   <a href="#education"   onclick="closeMob()">Education</a>
   <a href="#experience" onclick="closeMob()">Experience</a>
+  <a href="#certifications" onclick="closeMob()">Certifications</a>
   <a href="#skills"     onclick="closeMob()">Skills</a>
   <a href="#projects"  onclick="closeMob()">Projects</a>
   <a href="#photos"    onclick="closeMob()">Photos</a>
@@ -1005,9 +1057,17 @@
       <li><a href="#about">About</a></li>
       <li><a href="#education">Education</a></li>
       <li><a href="#experience">Experience</a></li>
+      <li><a href="#certifications">Certifications</a></li>
       <li><a href="#skills">Skills</a></li>
       <li><a href="#projects">Projects</a></li>
       <li><a href="#photos">Photos</a></li>
+      <li>
+        <a href="https://github.com/loucasdipillo-rgb" target="_blank" rel="noopener noreferrer" aria-label="GitHub profile">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" style="display:block">
+            <path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/>
+          </svg>
+        </a>
+      </li>
       <li><a href="#contact" class="nav-cta">Contact</a></li>
     </ul>
     <button class="nav-ham" id="nav-ham" aria-label="Open menu" aria-expanded="false" aria-controls="mob-menu">
@@ -1107,26 +1167,34 @@
           Liège, Belgium
         </div>
         <div class="about-chips">
-          <span class="about-chip">Economics</span>
-          <span class="about-chip">Finance</span>
-          <span class="about-chip">IronMan</span>
+          <span class="about-chip">Sustainable Finance</span>
+          <span class="about-chip">IronMan 70.3</span>
+          <span class="about-chip">Granfondo Stelvio</span>
           <span class="about-chip">Chess · 1700 Elo</span>
         </div>
       </div>
 
       <div class="about-right">
         <div class="s-label rev">About me</div>
-        <h2 id="about-h" class="rev d1">Finance-driven,<br>data-curious.</h2>
+        <h2 id="about-h" class="rev d1">Finance meets<br>sustainability.</h2>
         <p class="rev d2">
-          I'm a first-year Master's student in Macroeconomics &amp; Finance at HEC Liège, Belgium,
-          building on a Bachelor's in Economics (Finance major, 13.5/20) from the University of
-          Luxembourg. Bilingual in French and English, with experience internationnaly.
+          Master's student in Macroeconomics &amp; Finance at HEC Liège, combining a rigorous
+          quantitative background — econometrics, Python, NLP — with a strong focus on sustainable
+          finance and ESG research. Trilingual (French, English, Italian), with international
+          experience including a semester at Lakeland University (Wisconsin, USA).
         </p>
         <p class="rev d3">
-          My work sits at the intersection of empirical finance and data science — from panel econometrics
-          and NLP-driven market research to live portfolio management. I'm drawn to problems where rigorous
-          quantitative methods meet real market dynamics: currently researching how CSRD disclosure affects
-          corporate bond spreads for my master's thesis, while running a live long-short equity strategy on the side.
+          My thesis investigates whether mandatory ESG disclosure under the EU's NFRD/CSRD reduced
+          the cost of equity for European firms, using a firm-level identification strategy based on
+          the 500-employee reporting threshold and a staggered difference-in-differences design
+          (Callaway &amp; Sant'Anna, 2021). Alongside that, my academic work spans portfolio
+          management, macroeconomic modelling, NLP-based return prediction, and ESG disclosure
+          analysis — while I manage a personal passive ETF portfolio and stay closely engaged with
+          financial markets.
+        </p>
+        <p class="rev d3" style="margin-top:0;">
+          Open to end-of-studies internship opportunities from <strong style="color:var(--text)">February 2027</strong>
+          in finance, ESG research, or strategy — preferably in Luxembourg or Geneva.
         </p>
       </div>
 
@@ -1213,6 +1281,32 @@
         <div class="edu-node" aria-hidden="true"></div>
         <div class="edu-head">
           <div>
+            <div class="edu-date">Jun 2026 – Aug 2026</div>
+            <div class="edu-degree">Student — IT Asset Management</div>
+            <div class="edu-school">
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+                <rect x="1" y="3" width="12" height="9" rx="2" stroke="currentColor" stroke-width="1.3" opacity=".45"/>
+                <path d="M1 6h12M5 3V1.5M9 3V1.5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" opacity=".45"/>
+              </svg>
+              Cargolux Airlines International S.A. — Luxembourg
+            </div>
+          </div>
+          <span class="edu-badge">Current</span>
+        </div>
+        <div class="edu-sep"></div>
+        <div class="edu-desc">
+          Tracked and reconciled hardware and software assets using ServiceNow ITAM, ensuring data
+          accuracy across the full asset lifecycle in an international freight airline.
+          Built Excel-based reporting tools to monitor asset status, flag discrepancies, and support
+          data-driven reporting to IT management. Contributed to process documentation and
+          standardization of asset management workflows, reinforcing IT governance practices.
+        </div>
+      </div>
+
+      <div class="edu-card rev d1" role="listitem">
+        <div class="edu-node" aria-hidden="true"></div>
+        <div class="edu-head">
+          <div>
             <div class="edu-date">Summers 2022 – 2024</div>
             <div class="edu-degree">Valet · Bellman · Waiter · Technical Service</div>
             <div class="edu-school">
@@ -1237,7 +1331,7 @@
         <div class="edu-node" aria-hidden="true"></div>
         <div class="edu-head">
           <div>
-            <div class="edu-date">Jan 2026 – Apr 2027</div>
+            <div class="edu-date">Jan 2026 – Apr 2026</div>
             <div class="edu-degree">Student Employee</div>
             <div class="edu-school">
               <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
@@ -1254,6 +1348,69 @@
           Managing cash operations, POS systems, and inventory in a high-volume retail environment.
           Maintaining accuracy and efficiency during peak periods.
         </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ── CERTIFICATIONS ──────────────────────────────────────── -->
+<section id="certifications" aria-labelledby="cert-h">
+  <div class="container">
+    <div class="s-head">
+      <div class="s-label rev">Certifications &amp; Events</div>
+      <h2 id="cert-h" class="s-title rev d1">Credentials &amp; involvement</h2>
+      <p class="s-desc rev d2">Ongoing certifications and notable events I've participated in.</p>
+    </div>
+    <div class="cert-grid">
+
+      <div class="cert-card rev">
+        <div class="cert-icon" style="background:rgba(66,133,244,.1)" aria-hidden="true">🤖</div>
+        <div class="cert-body">
+          <div class="cert-title">Google AI Essentials</div>
+          <div class="cert-sub">Google — Summer 2026</div>
+        </div>
+        <span class="cert-status progress">In Progress</span>
+      </div>
+
+      <div class="cert-card rev d1">
+        <div class="cert-icon" style="background:rgba(255,140,66,.1)" aria-hidden="true">🧠</div>
+        <div class="cert-body">
+          <div class="cert-title">Anthropic AI Certification</div>
+          <div class="cert-sub">Anthropic — Summer 2026</div>
+        </div>
+        <span class="cert-status progress">In Progress</span>
+      </div>
+
+      <div class="cert-card rev d2">
+        <div class="cert-icon" style="background:rgba(36,41,47,.5)" aria-hidden="true">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="var(--text-sub)" aria-hidden="true">
+            <path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/>
+          </svg>
+        </div>
+        <div class="cert-body">
+          <div class="cert-title">GitHub Foundations Certification</div>
+          <div class="cert-sub">GitHub — Summer 2026</div>
+        </div>
+        <span class="cert-status progress">In Progress</span>
+      </div>
+
+      <div class="cert-card rev d3">
+        <div class="cert-icon" style="background:rgba(215,48,39,.1)" aria-hidden="true">🏆</div>
+        <div class="cert-body">
+          <div class="cert-title">PwC Belgium — Capture the AI Flag</div>
+          <div class="cert-sub">Hands-on AI challenge · April 2026</div>
+        </div>
+        <span class="cert-status done">Completed</span>
+      </div>
+
+      <div class="cert-card rev d4">
+        <div class="cert-icon" style="background:rgba(16,185,129,.1)" aria-hidden="true">🎙️</div>
+        <div class="cert-body">
+          <div class="cert-title">HEC Ambassador — Jéco 2025</div>
+          <div class="cert-sub">Journées de l'Économie · Lyon, France</div>
+        </div>
+        <span class="cert-status done">Completed</span>
       </div>
 
     </div>
@@ -1330,6 +1487,20 @@
 
       <div class="skill-cat rev d4">
         <div class="skill-cat-hd">
+          <div class="skill-icon" style="background:rgba(14,165,233,.1)" aria-hidden="true">🖥️</div>
+          <span class="skill-cat-name">IT &amp; Systems</span>
+        </div>
+        <div class="tags">
+          <span class="tag">ServiceNow ITAM</span>
+          <span class="tag">IT Governance</span>
+          <span class="tag">Asset Lifecycle</span>
+          <span class="tag">Process Documentation</span>
+          <span class="tag">Reporting</span>
+        </div>
+      </div>
+
+      <div class="skill-cat rev d4">
+        <div class="skill-cat-hd">
           <div class="skill-icon" style="background:rgba(139,92,246,.1)" aria-hidden="true">🌐</div>
           <span class="skill-cat-name">Languages</span>
         </div>
@@ -1386,19 +1557,20 @@
         <div class="proj-body">
           <div class="proj-cats">
             <span class="proj-cat">Econometrics</span>
-            <span class="proj-cat">DiD</span>
+            <span class="proj-cat">RDD</span>
             <span class="proj-cat">ESG</span>
-            <span class="proj-cat">Corporate Bonds</span>
+            <span class="proj-cat">Equity Markets</span>
             <span class="proj-cat">LaTeX</span>
           </div>
-          <h3 class="proj-title">CSRD &amp; the Cost of Debt</h3>
+          <h3 class="proj-title">Did the EU's NFRD Reduce the Cost of Equity for European Firms?</h3>
           <p class="proj-desc" style="font-size:.8rem;color:var(--accent-hi);font-weight:600;margin-bottom:7px;letter-spacing:.01em;">
             Master Thesis — HEC Liège, 2025–2026
           </p>
           <p class="proj-desc">
-            Empirical study of whether mandatory ESG disclosure under the EU's CSRD regulation
-            affects corporate bond spreads for European firms. Methodology: Difference-in-Differences
-            (DiD) with Two-Way Fixed Effects on bond market data.
+            Firm-level identification strategy exploiting the EU NFRD's 500-employee reporting
+            threshold to estimate the causal effect of mandatory non-financial disclosure on the
+            cost of equity for European firms. Regression discontinuity design around the
+            regulatory cutoff.
           </p>
         </div>
         <div class="proj-ft">
@@ -1686,16 +1858,16 @@
         </div>
         <div class="proj-ft">
           <span style="font-size:.72rem;font-weight:700;letter-spacing:.07em;text-transform:uppercase;
-                       color:#4ade80;background:rgba(74,222,128,.08);border:1px solid rgba(74,222,128,.2);
-                       padding:4px 12px;border-radius:100px;
-                       display:inline-flex;align-items:center;gap:6px;">
-            <span style="width:6px;height:6px;border-radius:50%;background:#4ade80;
-                         animation:blink 2.2s ease infinite;flex-shrink:0;"></span>
-            Live
+                       color:#34d399;background:rgba(34,211,238,.08);border:1px solid rgba(34,211,238,.2);
+                       padding:4px 12px;border-radius:100px;">
+            Completed
           </span>
-          <button type="button" class="proj-link" aria-disabled="true" aria-label="52-Week High strategy running privately on StockTrak">
-            Running on StockTrak
-          </button>
+          <a href="projects/IPM Presentation.pdf" target="_blank" rel="noopener noreferrer" class="proj-link" aria-label="View 52-Week High Momentum Strategy project">
+            View PDF
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+              <path d="M3 11L11 3M11 3H5M11 3v6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </a>
         </div>
       </article>
 
@@ -1704,37 +1876,22 @@
         <div class="proj-thumb">
           <div class="proj-thumb-bg" style="background:linear-gradient(135deg,#091510,#0c1a0e)" aria-hidden="true"></div>
           <div class="proj-thumb-noise" aria-hidden="true"></div>
-          <!-- Clean equity curve: flat start, gradual rise, small dip at end -->
           <svg class="proj-vis" width="200" height="90" viewBox="0 0 200 90" fill="none" aria-hidden="true">
-            <!-- Axes -->
             <line x1="16" y1="76" x2="188" y2="76" stroke="currentColor" stroke-width="1" opacity=".15"/>
             <line x1="16" y1="14" x2="16"  y2="76" stroke="currentColor" stroke-width="1" opacity=".15"/>
-            <!-- Zero / baseline reference -->
             <line x1="16" y1="62" x2="188" y2="62" stroke="#4ade80" stroke-width="1" stroke-dasharray="3 4" opacity=".15"/>
-            <!-- Area fill under curve -->
             <path d="M18 62 C30 62 42 61 54 60 C66 59 74 57 86 53
                      C98 49 108 42 122 34 C136 26 150 22 162 20
                      C170 22 176 30 184 36
                      L184 76 L18 76 Z"
                   fill="#4ade80" opacity=".05"/>
-            <!-- Equity curve line -->
             <path d="M18 62 C30 62 42 61 54 60 C66 59 74 57 86 53
                      C98 49 108 42 122 34 C136 26 150 22 162 20
                      C170 22 176 30 184 36"
                   fill="none" stroke="#4ade80" stroke-width="2.2" stroke-linecap="round" opacity=".85"/>
-            <!-- Start dot -->
             <circle cx="18"  cy="62" r="3"   fill="#4ade80" opacity=".5"/>
-            <!-- Current / end dot with glow -->
             <circle cx="184" cy="36" r="6"   fill="#4ade80" opacity=".18"/>
             <circle cx="184" cy="36" r="3.5" fill="#4ade80" opacity=".9"/>
-            <!-- Small dip annotation -->
-            <circle cx="162" cy="20" r="2.5" fill="#4ade80" opacity=".5"/>
-            <!-- Dip low marker -->
-            <line x1="162" y1="20" x2="170" y2="22" stroke="#4ade80" stroke-width="1" opacity=".3"/>
-            <!-- TWR label hint -->
-            <rect x="128" y="10" width="36" height="14" rx="4" fill="rgba(74,222,128,.08)" stroke="rgba(74,222,128,.2)" stroke-width="1"/>
-            <line x1="134" y1="17" x2="138" y2="17" stroke="#4ade80" stroke-width="1.2" stroke-linecap="round" opacity=".6"/>
-            <line x1="141" y1="17" x2="158" y2="17" stroke="#4ade80" stroke-width="1.2" stroke-linecap="round" opacity=".35"/>
           </svg>
           <span class="proj-pill" style="color:rgba(74,222,128,.75);border-color:rgba(74,222,128,.2);">Real Money</span>
         </div>
@@ -1742,7 +1899,7 @@
           <div class="proj-cats">
             <span class="personal-label">Personal</span>
             <span class="proj-cat">Personal Finance</span>
-            <span class="proj-cat">Excel</span>
+            <span class="proj-cat">ETF</span>
             <span class="proj-cat">TWR</span>
             <span class="proj-cat">PEA</span>
           </div>
@@ -1751,17 +1908,12 @@
             Personal Investment · Started September 2025
           </p>
           <p class="proj-desc">
-            Managing a French PEA (equity savings plan) as a real-money passive investment portfolio.
-            Custom Excel dashboard tracking cash flow entries, time-weighted return (TWR), drawdown
-            monitoring, and key metrics.
+            Managing a French PEA (equity savings plan) as a real-money passive ETF portfolio.
+            Custom dashboard tracking time-weighted return, drawdown monitoring, and key metrics.
           </p>
-          <div style="display:flex;gap:20px;margin-top:14px;flex-wrap:wrap;">
+          <div style="display:flex;gap:28px;margin-top:14px;flex-wrap:wrap;">
             <div>
-              <div style="font-family:'Space Grotesk',sans-serif;font-size:1.1rem;font-weight:700;color:#4ade80;letter-spacing:-.02em;">€5,289</div>
-              <div style="font-size:.72rem;color:var(--text-muted);text-transform:uppercase;letter-spacing:.06em;margin-top:1px;">Invested</div>
-            </div>
-            <div>
-              <div style="font-family:'Space Grotesk',sans-serif;font-size:1.1rem;font-weight:700;color:#4ade80;letter-spacing:-.02em;">+5.6%</div>
+              <div style="font-family:'Space Grotesk',sans-serif;font-size:1.1rem;font-weight:700;color:#4ade80;letter-spacing:-.02em;">+18.06%</div>
               <div style="font-size:.72rem;color:var(--text-muted);text-transform:uppercase;letter-spacing:.06em;margin-top:1px;">TWR</div>
             </div>
             <div>
@@ -1779,12 +1931,6 @@
                          animation:blink 2.2s ease infinite;flex-shrink:0;"></span>
             Live
           </span>
-          <a href="http://localhost:8501" target="_blank" rel="noopener noreferrer" class="proj-link" style="color:#4ade80;" aria-label="View Personal Passive Portfolio project">
-            View dashboard
-            <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
-              <path d="M3 11L11 3M11 3H5M11 3v6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-          </a>
         </div>
       </article>
 
@@ -1859,6 +2005,16 @@
             </svg>
             LinkedIn
           </a>
+          <a href="https://github.com/loucasdipillo-rgb"
+             target="_blank"
+             rel="noopener noreferrer"
+             class="btn btn-ghost"
+             aria-label="Visit GitHub profile (opens in new tab)">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/>
+            </svg>
+            GitHub
+          </a>
         </div>
       </div>
     </div>
@@ -1873,6 +2029,7 @@
       <a href="#hero">Back to top</a>
       <a href="mailto:loucas.dipillo@student.uliege.be">Email</a>
       <a href="https://www.linkedin.com/in/loucas-di-pillo" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+      <a href="https://github.com/loucasdipillo-rgb" target="_blank" rel="noopener noreferrer">GitHub</a>
     </div>
   </div>
 </footer>
